@@ -11,6 +11,19 @@ export default {
   name: 'App',
   components: {
     TheHeader
+  },
+
+  mounted() {
+    this.redirectToLogin()
+  },
+
+  methods: {
+    redirectToLogin() {
+      const conditional = this.$router.currentRoute.path === '/'
+      if(conditional) {
+        this.$router.push('/login')
+      }
+    }
   }
 }
 </script>

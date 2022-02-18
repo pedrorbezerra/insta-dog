@@ -13,13 +13,15 @@ Vue.use(Buefy, { defaultIconPack: 'fas' })
 import Login from './views/Login/Login.vue'
 import ForgotPassword from './views/ForgotPassword/ForgotPassword.vue'
 import SignIn from './views/SignIn/SignIn.vue'
+import Profile from './views/Profile/Profile.vue'
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/login', component: Login },
     { path: '/forgot-password', component: ForgotPassword },
-    { path: '/signin', component: SignIn}
+    { path: '/signin', component: SignIn},
+    { path: '/Profile', component: Profile}
   ]
 })
 

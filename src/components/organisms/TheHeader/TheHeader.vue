@@ -1,5 +1,5 @@
 <template>
-    <b-navbar class="TheHeader" wrapper-class="TheHeader__nav" shadow transparent fixed-top>
+    <b-navbar class="TheHeader" wrapper-class="TheHeader__nav container" shadow transparent fixed-top>
         <template #brand>
             <b-navbar-item tag="router-link" :to="{ path: '/login' }">
                 <img
@@ -29,5 +29,4 @@
     
     ::v-deep .TheHeader__nav
         display: flex
-        width: 50rem
 </style>
