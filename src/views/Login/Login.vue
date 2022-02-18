@@ -11,7 +11,7 @@
                 <b-input v-model="password" type="password" password-reveal></b-input>
             </b-field>
 
-            <b-button type="is-primary" class="Login__button">Entrar</b-button>
+            <b-button type="is-primary" class="Login__button" @click="login">Entrar</b-button>
 
             <router-link to="/forgot-password" class="Login__forgotPassword is-size-6 mt-6">Esqueceu a senha?</router-link>
 
@@ -31,6 +31,12 @@ export default ({
             password: ''
         }
     },
+
+    methods: {
+        login() {
+            this.$router.push('/feed')
+        }
+    }
 })
 </script>
 
