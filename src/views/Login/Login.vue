@@ -34,7 +34,19 @@ export default ({
 
     methods: {
         login() {
-            this.$router.push('/feed')
+            this.setUserInfos()
+            this.$router.push('/feed') 
+        },
+
+        setUserInfos() {
+            const infos = {
+                name: 'Tereza da Silva Sauro',
+                profilePhoto: 'https://uploads.metropoles.com/wp-content/uploads/2021/06/09110407/cachorro-fofo-usando-oculos_23-2148917262-1-600x380.jpg',
+                following: 14,
+                photos: 5
+            }
+
+            localStorage.setItem('user',  JSON.stringify(infos))
         }
     }
 })

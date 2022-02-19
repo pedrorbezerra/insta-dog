@@ -19,10 +19,9 @@ export default {
 
   methods: {
     redirectToLogin() {
-      const conditional = this.$router.currentRoute.path === '/'
-      if(conditional) {
-        this.$router.push('/login')
-      }
+      if(this.$router.currentRoute.path !== '/') return
+      
+      this.$router.push('/login')
     }
   }
 }
