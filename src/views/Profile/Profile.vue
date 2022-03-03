@@ -125,7 +125,9 @@ export default ({
         },
 
         openImage(image) {
-            this.photo = image
+            setTimeout(() => {
+                this.photo = image
+            }, 500)
         }
     }
 })
@@ -164,6 +166,10 @@ export default ({
         top: 0
         left: 0
         background: rgba(0, 0, 0, 0.3)
+
+        @media (max-width: 768px) 
+            width: 125px
+            height: 125px
     
     &__action-icons
         height: 100%
