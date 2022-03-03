@@ -4,12 +4,15 @@ import VueRouter from 'vue-router'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import store from './store'
+import '@fortawesome/fontawesome-free/css/all.css'
 
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 
-Vue.use(Buefy)
+Vue.use(Buefy, {
+  defaultIconPack: 'fas'
+})
 
 import Login from './views/Login/Login.vue'
 import ForgotPassword from './views/ForgotPassword/ForgotPassword.vue'
