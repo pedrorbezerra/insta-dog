@@ -35,7 +35,7 @@ export default ({
     methods: {
         login() {
             this.setUserInfos()
-            this.$router.push('/feed') 
+            this.$router.push('/profile') 
         },
 
         setUserInfos() {
@@ -62,6 +62,10 @@ export default ({
         background-image: url('https://i.insider.com/5de577b479d75715806e67e7')
         background-size: cover
         background-position: center
+
+        @media (max-width: 768px) 
+            display: none
+        
 
     &__title
         font-size: 3rem

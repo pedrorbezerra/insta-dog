@@ -9,12 +9,6 @@
             </b-navbar-item>
         </template>
 
-        <!-- <template #start>
-            <b-navbar-item href="#">
-                Home
-            </b-navbar-item>
-        </template> -->
-
         <template #end>
             <b-navbar-item href="/profile">
                 Meu Perfil

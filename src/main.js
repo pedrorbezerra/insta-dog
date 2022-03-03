@@ -23,11 +23,11 @@ import EditProfile from './views/Profile/EditProfile.vue'
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/login', component: Login },
-    { path: '/forgot-password', component: ForgotPassword },
-    { path: '/signin', component: SignIn},
-    { path: '/profile', component: Profile},
-    { path: '/profile/edit', component: EditProfile}
+    { path: '/login', name: 'login', component: Login },
+    { path: '/forgot-password', name: 'forgotPassword', component: ForgotPassword },
+    { path: '/signin', name: 'signin', component: SignIn},
+    { path: '/profile', name: 'profile', component: Profile},
+    { path: '/profile/edit', name: 'editProfile', component: EditProfile}
   ]
 })
 

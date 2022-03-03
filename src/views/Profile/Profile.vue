@@ -2,7 +2,7 @@
     <section class="Profile container">
         <Avatar :name="user.name" :image="user.profilePhoto"/>
 
-        <div class="Profile__infos container is-flex is-justify-content-center mt-4">
+        <div class="Profile__infos container is-flex is-justify-content-center">
             <span class="Profile__item"><strong>{{ user.following }}</strong> Seguindo</span>
 
             <span class="Profile__item"><strong>{{ user.photos }}</strong> Fotos</span>
@@ -11,7 +11,7 @@
         </div>
         
 
-        <div class="is-flex container is-flex-wrap-wrap	is-justify-content-center">
+        <div class="Profile__photos is-flex container is-flex-wrap-wrap	is-justify-content-center">
             <figure v-for="photo in photos" 
                 :key="photo.id" class="image Profile__photo" 
                 @mouseover="handlerPhotoHover(true, photo.id)" 
@@ -33,7 +33,11 @@
         </div>
 
         <b-modal v-model="photo">
-            <div :style="`background-image:url('${photo}')`" class="Profile__modal" />
+            <b-image
+                class="Profile__modal"
+                :src="photo"
+                ratio="1by1"
+            ></b-image>
         </b-modal>
     </section>
 </template>
@@ -112,7 +116,7 @@ export default ({
 
     methods: {
         editProfile() {
-            this.$router.push('profile/edit')
+            this.$router.push({ name: 'editProfile'})
         },
 
         handlerPhotoHover(event, id) {
@@ -129,10 +133,17 @@ export default ({
 
 <style lang="sass" scoped>
 .Profile
+    &__infos
+        margin: 1rem 0
+
     &__item
         padding: 10px
         min-width: 100px
         text-align: center
+
+    &__photos
+        @media (max-width: 768px)
+            justify-content: flex-start !important 
 
     &__photo
         width: 293px
@@ -140,6 +151,11 @@ export default ({
         margin: 15px
         position: relative
         cursor: pointer
+
+        @media (max-width: 768px) 
+            width: 125px
+            height: 125px
+            margin: 2px
 
     &__backdrop
         width: 293px
@@ -166,4 +182,7 @@ export default ({
         background-size: cover
         object-fit: cover
         background-position: center
+
+        @media (max-width: 768px) 
+            height: 75vh
 </style>
