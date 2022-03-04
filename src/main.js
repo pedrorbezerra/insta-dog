@@ -19,6 +19,7 @@ import ForgotPassword from './views/ForgotPassword/ForgotPassword.vue'
 import SignIn from './views/SignIn/SignIn.vue'
 import Profile from './views/Profile/Profile.vue'
 import EditProfile from './views/Profile/EditProfile.vue'
+import Feed from './views/Feed/Feed.vue'
 
 const router = new VueRouter({
   mode: 'history',
@@ -27,7 +28,8 @@ const router = new VueRouter({
     { path: '/forgot-password', name: 'forgotPassword', component: ForgotPassword },
     { path: '/signin', name: 'signin', component: SignIn},
     { path: '/profile', name: 'profile', component: Profile},
-    { path: '/profile/edit', name: 'editProfile', component: EditProfile}
+    { path: '/profile/edit', name: 'editProfile', component: EditProfile},
+    { path: '/feed', name: 'feed', component: Feed}
   ]
 })
 
