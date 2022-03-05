@@ -97,16 +97,21 @@ export default({
         position: relative
         cursor: pointer
 
+        @media (max-width: 768px) 
+            width: 125px
+            height: 125px
+            margin: 2px
+
         &--feed
             width: 100%
             height: 100%
             max-width: 768px
             max-height: 768px
-
-        @media (max-width: 768px) 
-            width: 125px
-            height: 125px
-            margin: 2px
+            margin-bottom: 30px
+            
+            @media (max-width: 768px) 
+                width: 100%
+                height: 100%  
 
     &__backdrop
         width: 293px
