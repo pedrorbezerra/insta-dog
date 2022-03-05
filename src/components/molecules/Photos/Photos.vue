@@ -1,20 +1,30 @@
 <template>
     <div class="Photos is-flex container is-flex-wrap-wrap	is-justify-content-center">
         <figure v-for="photo in photos" 
-            :key="photo.id" class="image Photos__photo" 
+            :key="photo.id" class="image Photos__photo"  :class="{'Photos__photo--feed': type === 'feed'}"
             @mouseover="handlerPhotoHover(true, photo.id)" 
             @mouseleave="handlerPhotoHover(false, photo.id)"
-            @click="openImage(photo.path)"
         >
             <b-image
                 :src="photo.path"
                 ratio="1by1"
+                @click.native="openImage(photo.path)"
             ></b-image>
 
-            <div v-if="photoHover[photo.id]" class="Photos__backdrop">
+            <div v-if="photoHover[photo.id] && type !== 'feed'" class="Photos__backdrop">
                 <div class="Photos__action-icons">
                     <span><b-icon pack="fas" icon="heart" type="is-white" /> {{ photo.likes }}</span>
                     <span><b-icon pack="fas" icon="comment" type="is-white" /> {{ photo.comments }}</span>
+                </div>
+            </div>
+
+            <div v-if="type === 'feed'">
+                <div class="is-flex">
+                    <span>Tereza</span>
+                    <div class="Photos__action-icons">
+                        <span><b-icon pack="fas" icon="heart" :type="photo.liked ? 'is-danger' : 'is-dark'" @click.native="teste(photo)" /> {{ photo.likes }}</span>
+                        <span><b-icon pack="fas" icon="comment" type="is-dark" /> {{ photo.comments }}</span>
+                    </div>
                 </div>
             </div>
         </figure>
@@ -37,6 +47,12 @@ export default({
         photos: {
             type: Array,
             default: () => []
+        },
+
+        type: {
+            type: String,
+            default: 'profile',
+            validator: (value) => ['profile', 'feed'].includes(value.toLowerCase())
         }
     },
 
@@ -59,6 +75,11 @@ export default({
                 this.photo = image
                 this.modal = true
             }, 500)
+        },
+
+        teste(photo) {
+            console.log(photo)
+            photo.liked = !photo.liked 
         }
     }
 })
@@ -75,6 +96,12 @@ export default({
         margin: 15px
         position: relative
         cursor: pointer
+
+        &--feed
+            width: 100%
+            height: 100%
+            max-width: 768px
+            max-height: 768px
 
         @media (max-width: 768px) 
             width: 125px
